@@ -1,35 +1,45 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+
+import { FontAwesome6, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
+        tabBarActiveTintColor:'green',
+        tabBarHideOnKeyboard:true
       }}>
       <Tabs.Screen
-        name="index"
+        name="(comparativo)"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          title: 'Comparativo',
+          tabBarIcon:({focused, color})=>(<MaterialCommunityIcons  name="compare" size={24} color={color} />)
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="comparativo2"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
+          title: 'Comparativo Simplificado',
+          tabBarIcon:({color})=>(<MaterialCommunityIcons name="select-compare" size={24} color={color} />)
+        }}
+      />
+            <Tabs.Screen
+        name="evolutivo"
+        options={{
+          title: 'Metodo Evolutivo',
+          tabBarIcon:({color})=>(<FontAwesome6 name="layer-group" size={24} color={color} />)
+
+        }}
+      />
+            <Tabs.Screen
+        name="involutivo"
+        options={{
+          title: 'Metodo Involutivo',
+          tabBarIcon:({color})=>(<MaterialIcons name="radar" size={24} color={color} />)
         }}
       />
     </Tabs>
