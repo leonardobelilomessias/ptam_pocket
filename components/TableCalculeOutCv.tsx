@@ -1,4 +1,4 @@
-import { chauvenetLimits } from "@/app/constants/chauvnet";
+import { chauvenetLimits } from "@/constants/chauvnet";
 import { itmType } from "@/app/types/typeItems";
 import { StyleSheet, Text, View } from "react-native";
 
